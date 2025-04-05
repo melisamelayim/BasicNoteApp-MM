@@ -91,8 +91,8 @@
 			children = (
 				5087C7D82D801732005A141C /* Main.storyboard */,
 				5087C7DD2D801736005A141C /* LaunchScreen.storyboard */,
-				503F14742D8864940002C58C /* Profile */,
 				503F14702D8863C40002C58C /* NoteList */,
+				503F14742D8864940002C58C /* Profile */,
 				503F146F2D8863B70002C58C /* Auth */,
 			);
 			path = Scenes;
@@ -102,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				503F147B2D88650C0002C58C /* Extensions */,
-				503F147A2D8864DE0002C58C /* Helpers */,
 				503F14792D8864D30002C58C /* Components */,
 				5024247B2D8AE1DF000CF438 /* Constants.swift */,
 			);
@@ -124,8 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				5087C7D62D801731005A141C /* NotesViewController.swift */,
-				5087C7E62D802021005A141C /* NoteCell.swift */,
 				500385162D8DD827008BA8B4 /* NoteDetailViewController.swift */,
+				5087C7E62D802021005A141C /* NoteCell.swift */,
 			);
 			path = NoteList;
 			sourceTree = "<group>";
@@ -168,13 +167,6 @@
 				502424812D8AF491000CF438 /* BNAAuthTextField.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		503F147A2D8864DE0002C58C /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		503F147B2D88650C0002C58C /* Extensions */ = {
