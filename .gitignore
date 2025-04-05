@@ -1,0 +1,14 @@
+# Secrets
+Secrets.plist
+
+# User settings
+*.xcuserdatad
+*.xcuserdata
+*.DS_Store
+
+# Build
+DerivedData/
+build/
+
+# SwiftPM
+.swiftpm/
