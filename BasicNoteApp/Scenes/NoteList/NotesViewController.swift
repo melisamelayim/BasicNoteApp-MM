@@ -40,7 +40,7 @@ class NotesViewController: UIViewController {
         if segue.identifier == "showNoteDetail",
            let detailVC = segue.destination as? NoteDetailViewController {
             
-            // Set up the closure to handle note updates
+            // set up the closure to handle note updates
             detailVC.onNoteSaved = { [weak self] in
                 guard let self = self else { return }
                 Task {
@@ -51,7 +51,7 @@ class NotesViewController: UIViewController {
                 }
             }
             
-            // Pass the note to edit (if any)
+            // pass the note to edit (if any)
             if let indexPath = sender as? IndexPath {
                 detailVC.noteToEdit = userSessionViewModel.notes[indexPath.row]
             }

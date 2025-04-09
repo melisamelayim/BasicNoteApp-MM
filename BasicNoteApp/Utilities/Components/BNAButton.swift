@@ -21,7 +21,7 @@ class BNAButton: UIButton {
         
     private func setupButton() {
         setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont(name: Fonts.interMedium, size: Titles.title2.pointSize) ?? Titles.title2
+        titleLabel?.font = .inter(.title2)
         backgroundColor = Colors.BNAPrimaryColor 
         layer.cornerRadius = 10
     }

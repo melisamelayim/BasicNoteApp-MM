@@ -22,15 +22,29 @@ struct Colors {
     
 }
 
-struct Fonts {
-    static let interMedium = "Inter-Medium"
+
+enum BNATextStyle {
+    case title1
+    case title2
+    case title3
+    case title4
+    case title5
 }
 
-struct Titles {
-    static let title1 = UIFont.systemFont(ofSize: 26, weight: .semibold) // 26 pt, Semibold
-    static let title2 = UIFont.systemFont(ofSize: 16, weight: .semibold) // 16 pt, Semibold
-    static let title3 = UIFont.systemFont(ofSize: 15, weight: .medium) // 15 pt, Medium
-    static let title4 = UIFont.systemFont(ofSize: 14, weight: .semibold) // 14 pt, Semibold
-    static let title5 = UIFont.systemFont(ofSize: 13, weight: .medium) // 13 pt, Medium
+extension UIFont {
+    static func inter(_ style: BNATextStyle) -> UIFont {
+        switch style {
+        case .title1:
+            return UIFont(name: "Inter-Medium", size: 26) ?? systemFont(ofSize: 26)
+        case .title2:
+            return UIFont(name: "Inter-Medium", size: 16) ?? systemFont(ofSize: 16)
+        case .title3:
+            return UIFont(name: "Inter-Medium", size: 15) ?? systemFont(ofSize: 15)
+        case .title4:
+            return UIFont(name: "Inter-Medium", size: 14) ?? systemFont(ofSize: 14)
+        case .title5:
+            return UIFont(name: "Inter-Medium", size: 13) ?? systemFont(ofSize: 13)
+        }
+    }
 }
 
