@@ -14,29 +14,29 @@ enum ValidationError: Error {
 }
 
 struct FormValidator {
-    static func emptyField(_ field: String) -> ValidationError? {
+    static func emptyField(_ field: String) -> String? {
         if field.isEmpty {
-            return .emptyField
+            return errorMessage(for: .emptyField)
         }
         return nil
     }
     
-    static func validateEmail(_ email: String) -> ValidationError? {
+    static func validateEmail(_ email: String) -> String? {
         if email.isEmpty {
-            return .emptyField
+            return errorMessage(for: .emptyField)
         }
         if !email.contains("@") || !email.contains(".") {
-            return .invalidEmail
+            return errorMessage(for: .invalidEmail)
         }
         return nil
     }
     
-    static func validatePassword(_ password: String) -> ValidationError? {
+    static func validatePassword(_ password: String) -> String? {
         if password.isEmpty {
-            return .emptyField
+            return errorMessage(for: .emptyField)
         }
-        if password.count < 8 {
-            return .invalidPassword
+        if password.count < 6 {
+            return errorMessage(for: .invalidPassword)
         }
         return nil
     }
@@ -46,7 +46,7 @@ struct FormValidator {
         case .invalidEmail:
             return "Your email address must contain '@' and '.'"
         case .invalidPassword:
-            return "Password Invalid"
+            return "Password must contain at least 6 chars"
         case .emptyField:
             return "You can't leave this part empty"
         }

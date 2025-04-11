@@ -5,75 +5,114 @@
 //  Created by Max on 7.04.2025.
 //
 
+
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: BaseViewController {
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var signUpSecLabel: UILabel!
+    @IBOutlet weak var haveAccountLabel: UILabel!
     
     @IBOutlet weak var fullNameTextField: BNAAuthTextField!
     @IBOutlet weak var emailTextField: BNAAuthTextField!
-    @IBOutlet weak var passwordTextfield: BNAAuthTextField!
+        
+    @IBOutlet weak var passwordTextField: BNAAuthTextField!
     
+
     @IBOutlet weak var emptyErrorLabel: UILabel!
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
     
     @IBOutlet weak var signUpButton: BNAButton!
+    @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupTextFields()
+        updateSignUpButtonState()
+    }
+    
+    func setupUI() {
         signUpLabel.font = .inter(.title1)
         signUpSecLabel.font = .inter(.title3)
+        haveAccountLabel.font = .inter(.title3)
         signUpSecLabel.textColor = Colors.BNAGrayDark
         
         fullNameTextField.placeholder = "Full Name"
         emailTextField.placeholder = "Email Address"
-        passwordTextfield.placeholder = "Password" 
-                
-        signUpButton.setTitleColor(.white, for: .normal)
+        passwordTextField.placeholder = "Password"
+                        
+        let buttonHeight: CGFloat = 63
         signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+                
+        haveAccountLabel.textColor = Colors.BNAGrayDark
+        haveAccountLabel.text = "Already have an account?"
+        signInButton.tintColor = Colors.BNAPrimaryColor
+        signInButton.setTitle("Sign in now", for: .normal)
         
+        emptyErrorLabel.isHidden = true
+        emailErrorLabel.isHidden = true
+        passwordErrorLabel.isHidden = true
+        
+        fullNameTextField.errorLabel = emptyErrorLabel
+        emailTextField.errorLabel = emailErrorLabel
+        passwordTextField.errorLabel = passwordErrorLabel
     }
-    
-    @IBAction func forgetPasswordButton(_ sender: Any) {
-    }
-    
    
-    @IBAction func signUpButtonTapped(_ sender: Any) {
-        let name = fullNameTextField.text ?? ""
-        let email = emailTextField.text ?? ""
-        let password = passwordTextfield.text ?? ""
-        
-        var isValid = true
-        
-        if let emptyError = FormValidator.emptyField(name) {
-            emptyErrorLabel.text = FormValidator.errorMessage(for: .emptyField)
-            emptyErrorLabel.isHidden = false
-            isValid = false
-        } else {
-            emptyErrorLabel.isHidden = true
+    @IBAction func signUpButtonTapped(_ sender: BNAButton) {
+        let isValid = getAllTextFields().allSatisfy { textField in
+            if let error = validateTextField(textField) {
+                showError(error, for: textField.errorLabel!)
+                return false
+            }            
+            return true
         }
         
-        if let emailError = FormValidator.validateEmail(email) {
-            emailErrorLabel.text = FormValidator.errorMessage(for: .invalidEmail)
-            emailErrorLabel.isHidden = false
-            isValid = false
-        } else {
-            emailErrorLabel.isHidden = true
-        }
+        guard isValid else { return }
         
-        if let passwordError = FormValidator.validatePassword(password) {
-            passwordErrorLabel.text = FormValidator.errorMessage(for: .invalidPassword)
-            passwordErrorLabel.isHidden = false
-            isValid = false
-        } else {
-            passwordErrorLabel.isHidden = true
-        }
-        
-        if isValid {
-            print("register successfull")
+        Task {
+            do {
+                let isUserRegistered = try await AuthService.shared.register(fullName: fullNameTextField.text!, withEmail: emailTextField.text!, password: passwordTextField.text!)
+                
+                if isUserRegistered {
+                    print("basarili")
+                }
+            } catch {
+                print("register didn't work")
+            }
         }
         
     }
+    
+    func updateSignUpButtonState() {
+        let allFieldsValid = getAllTextFields().allSatisfy { textField in
+            validateTextField(textField) == nil && !(textField.text?.isEmpty ?? true)
+        }
+                
+        signUpButton.setState(allFieldsValid ? .active : .inactive)
+    }
+    
+    override func textFieldType(for textField: BNAAuthTextField) -> TextFieldType? {
+        switch textField {
+        case fullNameTextField: return .fullName
+        case emailTextField: return .email
+        case passwordTextField: return .password
+        default: return nil
+        }
+    }
+    
+    @objc override func textFieldEditingDidEnd(_ textField: UITextField) {
+        super.textFieldEditingDidEnd(textField)
+        updateSignUpButtonState()
+    }
+        
+    @objc override func textFieldEditingDidBegin(_ textField: UITextField) {
+        super.textFieldEditingDidBegin(textField)
+        updateSignUpButtonState()
+    }
+    
+    
+    
 }

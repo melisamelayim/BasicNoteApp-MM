@@ -8,7 +8,10 @@
 import UIKit
 
 class BNAAuthTextField: UITextField {
-
+    private let textFieldHeight: CGFloat = 53
+    
+    var errorLabel: UILabel?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupField()
@@ -20,18 +23,33 @@ class BNAAuthTextField: UITextField {
     }
         
     private func setupField() {
-        tintColor = Colors.BNAPrimaryColor
         textColor = Colors.BNABlack
         font = UIFont.inter(.title2)
         autocorrectionType = .no
-        clipsToBounds = true
-        
+        clipsToBounds = false
+        layer.cornerRadius = 5
+        layer.borderWidth = 1.5
+        layer.borderColor = Colors.BNAGrayLight.cgColor
+
         let placeholder = self.placeholder != nil ? self.placeholder! : ""
-        let placeholderFont =  UIFont.inter(.title2)
         attributedPlaceholder = NSAttributedString(string: placeholder,
-                                                   attributes: [NSAttributedString.Key.foregroundColor: Colors.BNAGrayLight,
-                                                                NSAttributedString.Key.font: placeholderFont])
+                                                   attributes: [
+                                                    .foregroundColor: Colors.BNAGrayLight,
+                                                    .font: UIFont.inter(.title2)
+                                                   ]
+        )
         
+        heightAnchor.constraint(equalToConstant: textFieldHeight).isActive = true
+        
+    }
+    
+    func showErrorUI() {
+        layer.borderColor = Colors.BNAErrorColor.cgColor
+        
+    }
+    
+    func hideErrorUI() {
+        layer.borderColor = isEditing ? Colors.BNAPrimaryColor.cgColor : Colors.BNAGrayLight.cgColor
     }
 
 }

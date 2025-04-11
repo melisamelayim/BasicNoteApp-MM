@@ -18,42 +18,58 @@ class AuthService {
             "email": email,
             "password": password
         ]
-        
         let response: AuthResponse = try await BaseAPIService.shared.request(
             endpoint: "\(authEndpoint)login",
             method: "POST",
             body: requestBody,
             requiresAuth: false) // no need for auth at first
                 
-        if let token = response.data.accessToken {
+        if let token = response.data?.accessToken {
             UserDefaults.standard.set(token, forKey: "auth_token")
-            return true
-        } else {            
-            throw APIError.decodingError
-        }
-    }
-    
-    func register(fullName name: String, withEmail email: String, password: String) async throws -> Bool {
-
-        let requestBody: [String: Any] = [
-            "full_name": name,
-            "email": email,
-            "password": password
-        ]
-        
-        let response: AuthResponse = try await BaseAPIService.shared.request(
-            endpoint: "\(authEndpoint)register",
-            method: "POST",
-            body: requestBody,
-            requiresAuth: false) // no need for auth at first
-                
-        if let token = response.data.accessToken {
             return true
         } else {
             throw APIError.decodingError
         }
     }
     
+    func register(fullName name: String, withEmail email: String, password: String) async throws -> Bool {
+        let requestBody: [String: Any] = [
+            "full_name": name,
+            "email": email,
+            "password": password
+        ]
+                
+        let response: AuthResponse = try await BaseAPIService.shared.request(
+            endpoint: "\(authEndpoint)register",
+            method: "POST",
+            body: requestBody,
+            requiresAuth: false) // no need for auth at first
+                
+        
+        if let token = response.data?.accessToken {
+            return true
+        } else {
+            throw APIError.decodingError
+        }
+    }
+    
+    func resetPassword(withEmail email: String) async throws -> Bool {
+        let requestBody: [String: Any] = [
+            "email": email,
+        ]
+        let response: AuthResponse = try await BaseAPIService.shared.request(
+            endpoint: "\(authEndpoint)forgot-password",
+            method: "POST",
+            body: requestBody,
+            requiresAuth: false) // no need for auth at first
+                
+        guard let code = response.code, code == "auth.forgot-password" else {
+            print("olmadi ki")
+            return false            
+        }
+        return true
+    }
+
     
     
     func logout() {

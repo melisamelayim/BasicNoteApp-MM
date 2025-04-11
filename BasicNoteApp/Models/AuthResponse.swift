@@ -8,7 +8,8 @@
 import Foundation
 
 struct AuthResponse: Codable {
-    let data: TokenData
+    let code: String?
+    let data: TokenData?
     
     struct TokenData: Codable {
         let accessToken: String?

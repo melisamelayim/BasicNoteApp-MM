@@ -16,7 +16,12 @@ class NotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
+        let buttonHeight: CGFloat = 30
+        createNoteButton.setState(.active)
         createNoteButton.setTitle("Create Note", for: .normal)
+        createNoteButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+        
         
         Task {
             await userSessionViewModel.authenticateUser(email:"melisamelayim@gmail.com", password:"123456") // token is saved

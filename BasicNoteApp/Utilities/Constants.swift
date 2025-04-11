@@ -43,7 +43,7 @@ extension UIFont {
         case .title4:
             return UIFont(name: "Inter-Medium", size: 14) ?? systemFont(ofSize: 14)
         case .title5:
-            return UIFont(name: "Inter-Medium", size: 13) ?? systemFont(ofSize: 13)
+            return UIFont(name: "Inter-Medium", size: 13) ?? systemFont(ofSize: 11)
         }
     }
 }
