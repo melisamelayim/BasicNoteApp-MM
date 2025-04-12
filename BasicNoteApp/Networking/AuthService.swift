@@ -23,9 +23,9 @@ class AuthService {
             method: "POST",
             body: requestBody,
             requiresAuth: false) // no need for auth at first
-                
+                   
         if let token = response.data?.accessToken {
-            UserDefaults.standard.set(token, forKey: "auth_token")
+            TokenManager.shared.saveToken(token)
             return true
         } else {
             throw APIError.decodingError
@@ -44,9 +44,9 @@ class AuthService {
             method: "POST",
             body: requestBody,
             requiresAuth: false) // no need for auth at first
-                
-        
+                        
         if let token = response.data?.accessToken {
+            TokenManager.shared.saveToken(token)
             return true
         } else {
             throw APIError.decodingError
@@ -70,10 +70,8 @@ class AuthService {
         return true
     }
 
-    
-    
     func logout() {
-        UserDefaults.standard.removeObject(forKey: "auth_token")
+        TokenManager.shared.clearToken()
     }
     
 }

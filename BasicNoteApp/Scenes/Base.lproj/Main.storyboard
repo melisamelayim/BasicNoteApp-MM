@@ -21,9 +21,18 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ghh-Sm-GZT">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="log out :)"/>
+                                    <connections>
+                                        <action selector="logOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSP-I4-nAx"/>
+                                    </connections>
+                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" rowHeight="150" id="6C3-lK-sNv" customClass="NoteCell" customModule="BasicNoteApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="150"/>
+                                        <rect key="frame" x="0.0" y="94" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6C3-lK-sNv" id="QLe-Qo-sR7">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
@@ -38,7 +47,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deneme labelimiz" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb7-dK-bHg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deneme labelimiz" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb7-dK-bHg">
                                                     <rect key="frame" x="16" y="50" width="361" height="90"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,10 +73,10 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wU1-QU-uKa" customClass="BNAButton" customModule="BasicNoteApp" customModuleProvider="target">
-                                <rect key="frame" x="125.66666666666669" y="727" width="142" height="41"/>
+                                <rect key="frame" x="125.66666666666669" y="728" width="142" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="142" id="Rmk-Wr-wYX"/>
-                                    <constraint firstAttribute="height" constant="41" id="nww-mc-X5o"/>
+                                    <constraint firstAttribute="height" constant="40" id="T2F-bZ-gI6"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
@@ -91,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="4508" y="816"/>
         </scene>
         <!--Note Detail View Controller-->
         <scene sceneID="czQ-Yc-1of">
@@ -154,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdY-f8-aPO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1878.6259541984732" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="5378" y="815"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="kvy-3D-QHT">
@@ -248,7 +257,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="leading"/>
                                         <connections>
-                                            <segue destination="xvR-sE-jmW" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="Ta5-gj-zgu"/>
+                                            <action selector="backToLoginTapped:" destination="y0R-JC-wqM" eventType="touchUpInside" id="9NG-XQ-MSM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -280,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpp-Fg-jNa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3628" y="702"/>
+            <point key="canvasLocation" x="5379" y="-27"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="OWU-kE-zjd">
@@ -351,7 +360,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="forgotPasswordButtonTapped:" destination="xvR-sE-jmW" eventType="touchUpInside" id="Ir2-cc-XCJ"/>
-                                                    <segue destination="vWk-qm-7NN" kind="show" identifier="toForgotPasswordVC" id="YuL-mi-9zt"/>
+                                                    <segue destination="vWk-qm-7NN" kind="show" id="A9I-Wh-HGq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -388,7 +397,7 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Button" titleAlignment="leading"/>
                                         <connections>
                                             <action selector="registerButtonTapped:" destination="xvR-sE-jmW" eventType="touchUpInside" id="DIZ-af-F44"/>
-                                            <segue destination="y0R-JC-wqM" kind="presentation" identifier="toRegisterVC" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="bWq-3C-Kmy"/>
+                                            <segue destination="y0R-JC-wqM" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="K7r-gG-Nqv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -498,12 +507,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FIr-Dr-Lkq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5701.5267175572517" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="5378" y="-709"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VB8-N8-KP2">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RaA-W1-puE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NotesNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="RaA-W1-puE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6sK-r1-zjX">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -516,12 +525,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-Q9-JOF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="3166" y="815"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CFd-EL-X6T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4iF-dg-1rv" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AuthNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4iF-dg-1rv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SYM-LT-97y">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -534,12 +543,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljd-1q-bSJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3580.9160305343512" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="3166" y="-27"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="pQG-iv-vZ9"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

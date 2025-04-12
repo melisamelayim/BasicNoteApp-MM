@@ -4,7 +4,6 @@
 //
 //  Created by Max on 11.04.2025.
 //
-
 import UIKit
 
 class LoginViewController: BaseViewController {
@@ -74,9 +73,14 @@ class LoginViewController: BaseViewController {
         Task {
             do {
                 let isUserLoggedIn = try await AuthService.shared.login(withEmail: emailTextField.text!, password: passwordTextField.text!)
-                print("\(isUserLoggedIn)")
+                
                 if isUserLoggedIn {
-                    print("basarili")
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let navVC = storyboard.instantiateViewController(withIdentifier: "NotesNavigationController")
+                        navVC.modalPresentationStyle = .fullScreen
+                        self.present(navVC, animated: true)
+                    }
                 }
             } catch {
                 print("login didn't work")

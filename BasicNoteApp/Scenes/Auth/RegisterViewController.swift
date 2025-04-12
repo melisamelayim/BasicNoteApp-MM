@@ -77,7 +77,12 @@ class RegisterViewController: BaseViewController {
                 let isUserRegistered = try await AuthService.shared.register(fullName: fullNameTextField.text!, withEmail: emailTextField.text!, password: passwordTextField.text!)
                 
                 if isUserRegistered {
-                    print("basarili")
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let navVC = storyboard.instantiateViewController(withIdentifier: "NotesNavigationController")
+                        navVC.modalPresentationStyle = .fullScreen
+                        self.present(navVC, animated: true)
+                    }
                 }
             } catch {
                 print("register didn't work")
@@ -112,6 +117,11 @@ class RegisterViewController: BaseViewController {
         super.textFieldEditingDidBegin(textField)
         updateSignUpButtonState()
     }
+    
+    @IBAction func backToLoginTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
     
     
     

@@ -17,7 +17,7 @@ class NoteDetailViewController: UIViewController {
     var noteToEdit: Note? // if exists, we're in edit mode
     private var originalTitle: String = ""
     private var originalContent: String = ""
-    
+    let buttonHeight: CGFloat = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class NoteDetailViewController: UIViewController {
         originalTitle = ""
         originalContent = ""
         saveButton.setTitle("Save Note", for: .normal)
+        saveButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
         self.title = "New Note"
     }
     
@@ -45,6 +46,7 @@ class NoteDetailViewController: UIViewController {
         originalTitle = note.title
         originalContent = note.note
         saveButton.setTitle("Update Note", for: .normal)
+        saveButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
         self.title = "Edit Note"
     }
     
@@ -62,9 +64,12 @@ class NoteDetailViewController: UIViewController {
         let isContentChanged = contentTextView.text != originalContent
         saveButton.isEnabled = isTitleChanged || isContentChanged
         
-        saveButton.alpha = saveButton.isEnabled ? 1.0 : 0.5
+        if saveButton.isEnabled {
+            saveButton.setState(.active)
+        } else {
+            saveButton.setState(.inactive)
+        }
     }
-    
     
     @IBAction func saveButtonTapped(_ sender: BNAButton) {
         guard let titleX = titleTextField.text, !titleX.isEmpty,
@@ -72,9 +77,7 @@ class NoteDetailViewController: UIViewController {
             print("can't leave title or content empty")
             return
         }
-        
-        
-        
+
         Task {
             if let existingNote = noteToEdit {
                 await editingNote(existingNote: existingNote, title: titleX, content: contentX)
@@ -84,7 +87,7 @@ class NoteDetailViewController: UIViewController {
             } else {
                 do {
                     let newNote = try await newNoteCreated(title: titleX, content: contentX)
-                    self.noteToEdit = newNote  // ❗️Artık update moduna geçiyoruz
+                    self.noteToEdit = newNote
                     self.originalTitle = titleX
                     self.originalContent = contentX
                     
@@ -93,14 +96,13 @@ class NoteDetailViewController: UIViewController {
                         self.title = "Edit Note"
                         onNoteSaved?()
                     }
-                    
                 } catch {
                     print("Error: \(error.localizedDescription)")
                 }
             }
             
             saveButton.isEnabled = false
-            saveButton.alpha = 0.5
+            saveButton.backgroundColor = Colors.BNAPrimaryColorLight
         }
         
         
@@ -132,18 +134,15 @@ class NoteDetailViewController: UIViewController {
     private func newNoteCreated(title: String, content: String) async throws -> Note {
         do {
             let returnedNote = try await NoteService.shared.createNote(title: title, content: content)
-            print("note created")
             await MainActor.run {
                 onNoteSaved?()
             }
             return returnedNote
         } catch {
             print("error: \(error.localizedDescription)")
-            throw error // burası eksikti!
+            throw error
         }
     }
-    
-    
 }
 
 extension NoteDetailViewController: UITextViewDelegate {

@@ -17,7 +17,7 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         
-        let buttonHeight: CGFloat = 30
+        let buttonHeight: CGFloat = 40
         createNoteButton.setState(.active)
         createNoteButton.setTitle("Create Note", for: .normal)
         createNoteButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
@@ -92,6 +92,20 @@ class NotesViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
     }
+    
+    @IBAction func logOutButton(_ sender: Any) {
+        AuthService.shared.logout()
+        let sceneDelegate = UIApplication.shared.connectedScenes
+            .first?.delegate as? SceneDelegate
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginNavVC = storyboard.instantiateViewController(withIdentifier: "AuthNavigationController")
+        
+        sceneDelegate?.window?.rootViewController = loginNavVC
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
+    
 }
+
 
 

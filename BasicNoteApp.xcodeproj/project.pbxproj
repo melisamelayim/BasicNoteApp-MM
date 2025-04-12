@@ -15,6 +15,8 @@
 		50355EBB2DA438C0003402F5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50355EBA2DA438C0003402F5 /* RegisterViewController.swift */; };
 		50355EBD2DA469CF003402F5 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50355EBC2DA469CF003402F5 /* Inter-Medium.otf */; };
 		50355EBF2DA47496003402F5 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50355EBE2DA47496003402F5 /* FormValidator.swift */; };
+		504014382DAAF1BC00B72348 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 504014372DAAF1BC00B72348 /* KeychainAccess */; };
+		5040143A2DAAF83500B72348 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504014392DAAF83500B72348 /* TokenManager.swift */; };
 		50514BDC2DA94F43001D89EA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50514BDB2DA94F43001D89EA /* BaseViewController.swift */; };
 		50514BDE2DA9B2DA001D89EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50514BDD2DA9B2DA001D89EA /* LoginViewController.swift */; };
 		50514BE02DA9B321001D89EA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50514BDF2DA9B321001D89EA /* ProfileViewController.swift */; };
@@ -48,6 +50,7 @@
 		50355EBA2DA438C0003402F5 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		50355EBC2DA469CF003402F5 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		50355EBE2DA47496003402F5 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
+		504014392DAAF83500B72348 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		50514BDB2DA94F43001D89EA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		50514BDD2DA9B2DA001D89EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		50514BDF2DA9B321001D89EA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				504014382DAAF1BC00B72348 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +96,7 @@
 				5087C7D42D801731005A141C /* SceneDelegate.swift */,
 				5031B6232D8355C300F0BC56 /* SecretsManager.swift */,
 				506DEEE82D85829F00E13D5F /* Secrets.plist */,
+				504014392DAAF83500B72348 /* TokenManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 				5087C7D82D801732005A141C /* Main.storyboard */,
 				5087C7DD2D801736005A141C /* LaunchScreen.storyboard */,
 				503F14702D8863C40002C58C /* NoteList */,
+				503F14742D8864940002C58C /* Profile */,
 				503F146F2D8863B70002C58C /* Auth */,
 			);
 			path = Scenes;
@@ -122,11 +128,9 @@
 			isa = PBXGroup;
 			children = (
 				50514BDB2DA94F43001D89EA /* BaseViewController.swift */,
-				50355EBE2DA47496003402F5 /* FormValidator.swift */,
-				503F14742D8864940002C58C /* Profile */,
-				503F14732D8864830002C58C /* Register */,
-				503F14722D88647D0002C58C /* Login */,
-				503F14712D8864570002C58C /* ForgotPassword */,
+				50355EBA2DA438C0003402F5 /* RegisterViewController.swift */,
+				50514BDD2DA9B2DA001D89EA /* LoginViewController.swift */,
+				50514BE12DA9B330001D89EA /* ForgotPasswordViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -139,30 +143,6 @@
 				5087C7E62D802021005A141C /* NoteCell.swift */,
 			);
 			path = NoteList;
-			sourceTree = "<group>";
-		};
-		503F14712D8864570002C58C /* ForgotPassword */ = {
-			isa = PBXGroup;
-			children = (
-				50514BE12DA9B330001D89EA /* ForgotPasswordViewController.swift */,
-			);
-			path = ForgotPassword;
-			sourceTree = "<group>";
-		};
-		503F14722D88647D0002C58C /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				50514BDD2DA9B2DA001D89EA /* LoginViewController.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		503F14732D8864830002C58C /* Register */ = {
-			isa = PBXGroup;
-			children = (
-				50355EBA2DA438C0003402F5 /* RegisterViewController.swift */,
-			);
-			path = Register;
 			sourceTree = "<group>";
 		};
 		503F14742D8864940002C58C /* Profile */ = {
@@ -227,6 +207,7 @@
 				506DEEEC2D85C8FF00E13D5F /* EmptyResponse.swift */,
 				506DEEF12D85D2FC00E13D5F /* AuthResponse.swift */,
 				506DEEEF2D85CDFC00E13D5F /* UserSessionViewModel.swift */,
+				50355EBE2DA47496003402F5 /* FormValidator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +240,9 @@
 			dependencies = (
 			);
 			name = BasicNoteApp;
+			packageProductDependencies = (
+				504014372DAAF1BC00B72348 /* KeychainAccess */,
+			);
 			productName = BasicNoteApp;
 			productReference = 5087C7CF2D801731005A141C /* BasicNoteApp.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +271,9 @@
 				Base,
 			);
 			mainGroup = 5087C7C62D801731005A141C;
+			packageReferences = (
+				504014362DAAF1BC00B72348 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 5087C7D02D801731005A141C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,6 +324,7 @@
 				506DEEEB2D85B89D00E13D5F /* BaseAPIService.swift in Sources */,
 				509AD3962DA1734A005D5711 /* UserService.swift in Sources */,
 				5087C7E72D802021005A141C /* NoteCell.swift in Sources */,
+				5040143A2DAAF83500B72348 /* TokenManager.swift in Sources */,
 				50F35E072D832A4F001F4EA6 /* NoteService.swift in Sources */,
 				500385172D8DD828008BA8B4 /* NoteDetailViewController.swift in Sources */,
 				5024247C2D8AE1DF000CF438 /* Constants.swift in Sources */,
@@ -565,6 +553,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		504014362DAAF1BC00B72348 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		504014372DAAF1BC00B72348 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 504014362DAAF1BC00B72348 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5087C7C72D801731005A141C /* Project object */;
 }

@@ -4,6 +4,7 @@
 //
 //  Created by Max on 15.03.2025.
 //
+// (elma icin opt + shift + k) 
 
 import Foundation
 
@@ -38,10 +39,10 @@ class BaseAPIService {
         request.httpMethod = method
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-//         auth token is  optional (elma icin opt + shift + k) 
+//         auth token is optional
 //         "bearer ..." is used to let api know that our auth key is a token. we add this info to the
 //         http header field, which is used for auth, content type, api key etc...
-        if requiresAuth, let token = UserDefaults.standard.string(forKey: "auth_token") {
+        if requiresAuth, let token = TokenManager.shared.getToken() {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         } else if requiresAuth {
             throw APIError.unauthorized
