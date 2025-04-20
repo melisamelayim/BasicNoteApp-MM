@@ -13,6 +13,7 @@ enum APIError:  Error {
     case badRequest
     case serverError
     case decodingError
+    case invalidCredentials
     case unknownError
     
     var localizedDescription: String {
@@ -27,6 +28,8 @@ enum APIError:  Error {
             return "server error, please try again later"
         case .decodingError:
             return "decoding error"
+        case .invalidCredentials:
+            return "The email and password you entered did not match our records. Please try again."
         case .unknownError:
             return "unknown error occured"
         }

@@ -28,7 +28,7 @@ class AuthService {
             TokenManager.shared.saveToken(token)
             return true
         } else {
-            throw APIError.decodingError
+            throw APIError.invalidCredentials            
         }
     }
     

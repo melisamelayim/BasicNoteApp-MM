@@ -30,6 +30,8 @@ class BNAAuthTextField: UITextField {
         layer.cornerRadius = 5
         layer.borderWidth = 1.5
         layer.borderColor = Colors.BNAGrayLight.cgColor
+        
+        self.returnKeyType = .done
 
         let placeholder = self.placeholder != nil ? self.placeholder! : ""
         attributedPlaceholder = NSAttributedString(string: placeholder,

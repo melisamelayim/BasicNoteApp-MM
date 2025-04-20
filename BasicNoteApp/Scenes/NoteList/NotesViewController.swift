@@ -8,27 +8,60 @@
 
 import UIKit
 
-class NotesViewController: UIViewController {
+class NotesViewController: UIViewController, UISearchBarDelegate {
     var userSessionViewModel = UserSessionViewModel()
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var createNoteButton: BNAButton!
     
+    private var searchBar: UISearchBar!
+    var filteredNotes: [Note] = []
+    
+    var isFiltering: Bool {
+        return searchBar.text?.isEmpty == false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
+        setupUI()
+    }
+    
+    func setupUI() {
         let buttonHeight: CGFloat = 40
-        createNoteButton.setState(.active)
-        createNoteButton.setTitle("Create Note", for: .normal)
-        createNoteButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
         
+        createNoteButton.setState(.active)
+        createNoteButton.setTitle(" Add Note", for: .normal)
+        createNoteButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        createNoteButton.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+        createNoteButton.titleLabel?.font = .inter(.title4)
+        
+        createNoteButton.tintColor = .white
+        createNoteButton.imageView?.contentMode = .scaleAspectFit
+        createNoteButton.semanticContentAttribute = .forceLeftToRight
+        createNoteButton.contentHorizontalAlignment = .center
+        
+        searchBar = UISearchBar()
+        searchBar.placeholder = "Search Notes..."
+        searchBar.delegate = self
+        
+        navigationItem.titleView = searchBar
+        
+        let profileButton = UIButton(type: .custom)
+        profileButton.setImage(UIImage(systemName: "person"), for: .normal)
+        profileButton.frame.size = CGSize(width: 50, height: 60)
+        profileButton.imageView?.contentMode = .scaleAspectFit
+        profileButton.tintColor = Colors.BNAPrimaryColor
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
+        
+        let profileBarButton = UIBarButtonItem(customView: profileButton)
+        navigationItem.rightBarButtonItem = profileBarButton
         
         Task {
-            await userSessionViewModel.authenticateUser(email:"melisamelayim@gmail.com", password:"123456") // token is saved
-            
-            if userSessionViewModel.isAuthenticated { // if token's successful:
+            if TokenManager.shared.isLoggedIn {
                 await userSessionViewModel.loadNotes()
-                tableView.reloadData()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             } else {
                 print("user couldn't log in")
             }
@@ -40,12 +73,16 @@ class NotesViewController: UIViewController {
         performSegue(withIdentifier: "showNoteDetail", sender: nil)
     }
     
+    @objc func profileButtonTapped() {
+        Task {
+            await userSessionViewModel.loadUser()
+            performSegue(withIdentifier: "showProfile", sender: nil)
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNoteDetail",
-           let detailVC = segue.destination as? NoteDetailViewController {
-            
-            // set up the closure to handle note updates
+           let detailVC = segue.destination as? NoteDetailViewController { // set up the closure to handle note updates
             detailVC.onNoteSaved = { [weak self] in
                 guard let self = self else { return }
                 Task {
@@ -56,11 +93,32 @@ class NotesViewController: UIViewController {
                 }
             }
             
-            // pass the note to edit (if any)
-            if let indexPath = sender as? IndexPath {
+            if let indexPath = sender as? IndexPath { // pass the note to edit (if any)
                 detailVC.noteToEdit = userSessionViewModel.notes[indexPath.row]
             }
         }
+        
+        if segue.identifier == "showProfile" {
+            if let profileVC = segue.destination as? ProfileViewController {
+                profileVC.originalName = userSessionViewModel.userName
+                profileVC.originalEmail = userSessionViewModel.userEmail
+                Task {
+                    await userSessionViewModel.loadUser()
+                }
+            }
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterNotes(for: searchText)
+    }
+    
+    private func filterNotes(for searchText: String) {
+        filteredNotes = userSessionViewModel.notes.filter { note in
+            return note.title.lowercased().contains(searchText.lowercased()) ||
+            note.note.lowercased().contains(searchText.lowercased())
+        }
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,7 +128,7 @@ class NotesViewController: UIViewController {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
-
+    
     
     @objc func reloadTableView() {
         Task {
@@ -91,18 +149,6 @@ class NotesViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
-    }
-    
-    @IBAction func logOutButton(_ sender: Any) {
-        AuthService.shared.logout()
-        let sceneDelegate = UIApplication.shared.connectedScenes
-            .first?.delegate as? SceneDelegate
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginNavVC = storyboard.instantiateViewController(withIdentifier: "AuthNavigationController")
-        
-        sceneDelegate?.window?.rootViewController = loginNavVC
-        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
 }

@@ -17,6 +17,8 @@
 		50355EBF2DA47496003402F5 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50355EBE2DA47496003402F5 /* FormValidator.swift */; };
 		504014382DAAF1BC00B72348 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 504014372DAAF1BC00B72348 /* KeychainAccess */; };
 		5040143A2DAAF83500B72348 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504014392DAAF83500B72348 /* TokenManager.swift */; };
+		504CC03E2DACF8F600B57F1B /* BNAToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504CC03D2DACF8F600B57F1B /* BNAToastView.swift */; };
+		504CC0422DAD462100B57F1B /* TextIconAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504CC0412DAD462100B57F1B /* TextIconAdder.swift */; };
 		50514BDC2DA94F43001D89EA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50514BDB2DA94F43001D89EA /* BaseViewController.swift */; };
 		50514BDE2DA9B2DA001D89EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50514BDD2DA9B2DA001D89EA /* LoginViewController.swift */; };
 		50514BE02DA9B321001D89EA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50514BDF2DA9B321001D89EA /* ProfileViewController.swift */; };
@@ -27,6 +29,7 @@
 		506DEEF02D85CDFC00E13D5F /* UserSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEEEF2D85CDFC00E13D5F /* UserSessionViewModel.swift */; };
 		506DEEF22D85D2FC00E13D5F /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEEF12D85D2FC00E13D5F /* AuthResponse.swift */; };
 		506DEEF42D85DF3300E13D5F /* NotesViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506DEEF32D85DF3300E13D5F /* NotesViewController+Extensions.swift */; };
+		507A6D712DB0EAD800AE0E00 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507A6D702DB0EAD800AE0E00 /* ChangePasswordViewController.swift */; };
 		5087C7D32D801731005A141C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087C7D22D801731005A141C /* AppDelegate.swift */; };
 		5087C7D52D801731005A141C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087C7D42D801731005A141C /* SceneDelegate.swift */; };
 		5087C7D72D801731005A141C /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087C7D62D801731005A141C /* NotesViewController.swift */; };
@@ -51,6 +54,8 @@
 		50355EBC2DA469CF003402F5 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
 		50355EBE2DA47496003402F5 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		504014392DAAF83500B72348 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		504CC03D2DACF8F600B57F1B /* BNAToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNAToastView.swift; sourceTree = "<group>"; };
+		504CC0412DAD462100B57F1B /* TextIconAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextIconAdder.swift; sourceTree = "<group>"; };
 		50514BDB2DA94F43001D89EA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		50514BDD2DA9B2DA001D89EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		50514BDF2DA9B321001D89EA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 		506DEEEF2D85CDFC00E13D5F /* UserSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionViewModel.swift; sourceTree = "<group>"; };
 		506DEEF12D85D2FC00E13D5F /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		506DEEF32D85DF3300E13D5F /* NotesViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotesViewController+Extensions.swift"; sourceTree = "<group>"; };
+		507A6D702DB0EAD800AE0E00 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		5087C7CF2D801731005A141C /* BasicNoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicNoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5087C7D22D801731005A141C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5087C7D42D801731005A141C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,9 +100,9 @@
 			children = (
 				5087C7D22D801731005A141C /* AppDelegate.swift */,
 				5087C7D42D801731005A141C /* SceneDelegate.swift */,
+				504014392DAAF83500B72348 /* TokenManager.swift */,
 				5031B6232D8355C300F0BC56 /* SecretsManager.swift */,
 				506DEEE82D85829F00E13D5F /* Secrets.plist */,
-				504014392DAAF83500B72348 /* TokenManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				50514BDF2DA9B321001D89EA /* ProfileViewController.swift */,
+				507A6D702DB0EAD800AE0E00 /* ChangePasswordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -157,9 +164,10 @@
 			isa = PBXGroup;
 			children = (
 				5087C7DB2D801736005A141C /* Assets.xcassets */,
-				50F35E092D832F8A001F4EA6 /* Models.swift */,
 				5024247D2D8AE8BD000CF438 /* BNAButton.swift */,
 				502424812D8AF491000CF438 /* BNAAuthTextField.swift */,
+				504CC03D2DACF8F600B57F1B /* BNAToastView.swift */,
+				504CC0412DAD462100B57F1B /* TextIconAdder.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -204,10 +212,11 @@
 		50F35E082D832F79001F4EA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				506DEEEC2D85C8FF00E13D5F /* EmptyResponse.swift */,
-				506DEEF12D85D2FC00E13D5F /* AuthResponse.swift */,
 				506DEEEF2D85CDFC00E13D5F /* UserSessionViewModel.swift */,
 				50355EBE2DA47496003402F5 /* FormValidator.swift */,
+				50F35E092D832F8A001F4EA6 /* Models.swift */,
+				506DEEF12D85D2FC00E13D5F /* AuthResponse.swift */,
+				506DEEEC2D85C8FF00E13D5F /* EmptyResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -311,10 +320,13 @@
 				50F35E0A2D832F8A001F4EA6 /* Models.swift in Sources */,
 				50514BE02DA9B321001D89EA /* ProfileViewController.swift in Sources */,
 				5087C7E92D8033D1005A141C /* AuthService.swift in Sources */,
+				504CC0422DAD462100B57F1B /* TextIconAdder.swift in Sources */,
 				50355EBF2DA47496003402F5 /* FormValidator.swift in Sources */,
 				506DEEF42D85DF3300E13D5F /* NotesViewController+Extensions.swift in Sources */,
 				506DEEED2D85C8FF00E13D5F /* EmptyResponse.swift in Sources */,
+				507A6D712DB0EAD800AE0E00 /* ChangePasswordViewController.swift in Sources */,
 				50514BE22DA9B330001D89EA /* ForgotPasswordViewController.swift in Sources */,
+				504CC03E2DACF8F600B57F1B /* BNAToastView.swift in Sources */,
 				5087C7D52D801731005A141C /* SceneDelegate.swift in Sources */,
 				50355EBB2DA438C0003402F5 /* RegisterViewController.swift in Sources */,
 				50514BDE2DA9B2DA001D89EA /* LoginViewController.swift in Sources */,

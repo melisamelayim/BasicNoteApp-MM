@@ -14,6 +14,12 @@ class NoteCell: UITableViewCell {
     func configure(with note: Note) {
         titleLabel.text = note.title
         descriptionLabel.text = note.note
+        
+        titleLabel.font = .inter(.title2)
+        
+        descriptionLabel.font = .inter(.title3)
+        descriptionLabel.textColor = Colors.BNAGrayDark
+
     }
     
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 // base vc for login, register, forgot password and profile views
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextFields()
@@ -17,9 +17,9 @@ class BaseViewController: UIViewController {
     func setupTextFields() {
         let textFields = getAllTextFields()
         textFields.forEach { textField in
+            textField.delegate = self
             textField.addTarget(self, action: #selector(textFieldEditingDidBegin(_:)), for: .editingDidBegin)
-            textField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)
-            textField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingChanged) // same with DidEnd control
+            textField.addTarget(self, action: #selector(textFieldEditingDidEnd(_:)), for: .editingDidEnd)            
         }
     }
     
@@ -55,9 +55,16 @@ class BaseViewController: UIViewController {
         return results
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textFieldEditingDidEnd(textField)        
+        return true
+    }
+    
     @objc func textFieldEditingDidBegin(_ textField: UITextField) {
         guard let textField = textField as? BNAAuthTextField else { return }
         textField.layer.borderColor = Colors.BNAPrimaryColor.cgColor
+        hideError(for: textField.errorLabel!)
+        textField.hideErrorUI()
     }
     
     @objc func textFieldEditingDidEnd(_ textField: UITextField) {
@@ -75,7 +82,7 @@ class BaseViewController: UIViewController {
     
     
     func showError(_ message: String, for label: UILabel) {
-        label.text = message
+        label.attributedText = TextIconAdder.iconText(iconName: "exclamationmark.triangle", text: message, iconColor: Colors.BNAErrorColor)
         
         if label.isHidden {
             label.isHidden = false
@@ -95,6 +102,5 @@ class BaseViewController: UIViewController {
             }
         }
     }
-
 
 }

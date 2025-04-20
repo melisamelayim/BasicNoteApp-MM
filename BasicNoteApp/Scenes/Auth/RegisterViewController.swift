@@ -42,6 +42,8 @@ class RegisterViewController: BaseViewController {
         fullNameTextField.placeholder = "Full Name"
         emailTextField.placeholder = "Email Address"
         passwordTextField.placeholder = "Password"
+        
+        passwordTextField.isSecureTextEntry = true
                         
         let buttonHeight: CGFloat = 63
         signUpButton.setTitle("Sign Up", for: .normal)

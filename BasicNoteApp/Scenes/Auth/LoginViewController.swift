@@ -27,8 +27,6 @@ class LoginViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-
-        // Do any additional setup after loading the view.
     }
     
     func setupUI() {
@@ -38,6 +36,8 @@ class LoginViewController: BaseViewController {
         
         emailTextField.placeholder = "Email Address"
         passwordTextField.placeholder = "Password"
+        
+        passwordTextField.isSecureTextEntry = true
 
         emailErrorLabel.isHidden = true
         passwordErrorLabel.isHidden = true
@@ -56,7 +56,7 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
-        //
+        // segue performed
     }
     
     @IBAction func LoginButtonTapped(_ sender: BNAButton) {
@@ -83,8 +83,12 @@ class LoginViewController: BaseViewController {
                     }
                 }
             } catch {
-                print("login didn't work")
+                BNAToastView(
+                    message: APIError.invalidCredentials.localizedDescription,
+                    backgroundColor: Colors.BNAErrorColor
+                ).show(in: self.view)
             }
+            
         }
         
     }
@@ -107,8 +111,18 @@ class LoginViewController: BaseViewController {
     }
         
     @objc override func textFieldEditingDidBegin(_ textField: UITextField) {
-        super.textFieldEditingDidBegin(textField)
-        updateLoginButtonState()
+        super.textFieldEditingDidBegin(textField)        
+    }
+    
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case emailTextField:
+                textFieldEditingDidEnd(textField)
+                passwordTextField.becomeFirstResponder()            
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
     func updateLoginButtonState() {

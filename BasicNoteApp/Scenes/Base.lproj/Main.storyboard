@@ -21,25 +21,16 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <button key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ghh-Sm-GZT">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="log out :)"/>
-                                    <connections>
-                                        <action selector="logOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jSP-I4-nAx"/>
-                                    </connections>
-                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" rowHeight="150" id="6C3-lK-sNv" customClass="NoteCell" customModule="BasicNoteApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="94" width="393" height="150"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6C3-lK-sNv" id="QLe-Qo-sR7">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSx-C0-91c">
-                                                    <rect key="frame" x="16" y="20" width="361" height="25"/>
+                                                    <rect key="frame" x="20" y="20" width="353" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="PCJ-GU-GAE"/>
                                                     </constraints>
@@ -48,7 +39,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deneme labelimiz" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mb7-dK-bHg">
-                                                    <rect key="frame" x="16" y="50" width="361" height="90"/>
+                                                    <rect key="frame" x="20" y="50" width="353" height="80"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -56,12 +47,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="CSx-C0-91c" firstAttribute="top" secondItem="QLe-Qo-sR7" secondAttribute="top" constant="20" id="Ac9-Gy-mRd"/>
-                                                <constraint firstAttribute="trailing" secondItem="CSx-C0-91c" secondAttribute="trailing" constant="16" id="NI9-K6-FUy"/>
-                                                <constraint firstAttribute="trailing" secondItem="mb7-dK-bHg" secondAttribute="trailing" constant="16" id="PBl-hh-DQP"/>
-                                                <constraint firstAttribute="bottom" secondItem="mb7-dK-bHg" secondAttribute="bottom" constant="10" id="uCZ-X7-JqL"/>
+                                                <constraint firstAttribute="trailing" secondItem="CSx-C0-91c" secondAttribute="trailing" constant="20" id="NI9-K6-FUy"/>
+                                                <constraint firstAttribute="trailing" secondItem="mb7-dK-bHg" secondAttribute="trailing" constant="20" id="PBl-hh-DQP"/>
+                                                <constraint firstAttribute="bottom" secondItem="mb7-dK-bHg" secondAttribute="bottom" constant="20" id="uCZ-X7-JqL"/>
                                                 <constraint firstItem="mb7-dK-bHg" firstAttribute="top" secondItem="CSx-C0-91c" secondAttribute="bottom" constant="5" id="vnG-iU-XGa"/>
-                                                <constraint firstItem="CSx-C0-91c" firstAttribute="leading" secondItem="QLe-Qo-sR7" secondAttribute="leading" constant="16" id="xej-ue-nlL"/>
-                                                <constraint firstItem="mb7-dK-bHg" firstAttribute="leading" secondItem="QLe-Qo-sR7" secondAttribute="leading" constant="16" id="yL7-XK-KBG"/>
+                                                <constraint firstItem="CSx-C0-91c" firstAttribute="leading" secondItem="QLe-Qo-sR7" secondAttribute="leading" constant="20" id="xej-ue-nlL"/>
+                                                <constraint firstItem="mb7-dK-bHg" firstAttribute="leading" secondItem="QLe-Qo-sR7" secondAttribute="leading" constant="20" id="yL7-XK-KBG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -73,9 +64,9 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wU1-QU-uKa" customClass="BNAButton" customModule="BasicNoteApp" customModuleProvider="target">
-                                <rect key="frame" x="125.66666666666669" y="728" width="142" height="40"/>
+                                <rect key="frame" x="116.66666666666669" y="728" width="160" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="Rmk-Wr-wYX"/>
+                                    <constraint firstAttribute="width" constant="160" id="Rmk-Wr-wYX"/>
                                     <constraint firstAttribute="height" constant="40" id="T2F-bZ-gI6"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -96,11 +87,174 @@
                     <connections>
                         <outlet property="createNoteButton" destination="wU1-QU-uKa" id="zMa-RS-J5K"/>
                         <outlet property="tableView" destination="WdD-sS-IIz" id="2dP-XL-ATL"/>
+                        <segue destination="c2S-jU-OWh" kind="show" identifier="showProfile" id="QUu-Er-fKX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4508" y="816"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Jci-5o-GG3">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" title="Profile View Controller" id="c2S-jU-OWh" customClass="ProfileViewController" customModule="BasicNoteApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WRI-OO-9U8">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Oli-sX-YZs">
+                                <rect key="frame" x="20" y="163" width="353" height="223"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Full Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="63W-AY-yzT" customClass="BNAAuthTextField" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZMQ-BB-bHU">
+                                        <rect key="frame" x="0.0" y="40.666666666666657" width="353" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email Address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjl-t8-LEG" customClass="BNAAuthTextField" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="47" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gp9-i6-Sib">
+                                        <rect key="frame" x="0.0" y="87.666666666666657" width="353" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfC-5g-hTY" customClass="BNAButton" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="94" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="c2S-jU-OWh" eventType="touchUpInside" id="TRR-lQ-WQK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9N-mv-5Y9">
+                                        <rect key="frame" x="0.0" y="141.33333333333331" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Change Password"/>
+                                        <connections>
+                                            <action selector="changePasswordButtonTapped:" destination="c2S-jU-OWh" eventType="touchUpInside" id="jfO-5F-6WM"/>
+                                            <segue destination="J13-bo-3U9" kind="show" identifier="toChangePasswordVC" id="a9F-be-pNi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXB-4r-c3U">
+                                        <rect key="frame" x="0.0" y="188.66666666666669" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
+                                        <connections>
+                                            <action selector="signOutButtonTapped:" destination="c2S-jU-OWh" eventType="touchUpInside" id="dYP-TP-GYa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b9T-tQ-iWr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b9T-tQ-iWr" firstAttribute="trailing" secondItem="Oli-sX-YZs" secondAttribute="trailing" constant="20" id="V86-Rb-uYH"/>
+                            <constraint firstItem="Oli-sX-YZs" firstAttribute="leading" secondItem="b9T-tQ-iWr" secondAttribute="leading" constant="20" id="lKU-jb-MRe"/>
+                            <constraint firstItem="Oli-sX-YZs" firstAttribute="top" secondItem="b9T-tQ-iWr" secondAttribute="top" constant="60" id="mou-xa-dWh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="82x-ug-asG"/>
+                    <connections>
+                        <outlet property="changePasswordButton" destination="p9N-mv-5Y9" id="WaV-wL-l5O"/>
+                        <outlet property="emailErrorLabel" destination="Gp9-i6-Sib" id="ZIw-eM-7vq"/>
+                        <outlet property="emailTextField" destination="zjl-t8-LEG" id="ZVy-eg-CI1"/>
+                        <outlet property="fullNameErrorLabel" destination="ZMQ-BB-bHU" id="gys-bU-Vg6"/>
+                        <outlet property="fullNameTextField" destination="63W-AY-yzT" id="774-fg-iBo"/>
+                        <outlet property="saveButton" destination="YfC-5g-hTY" id="lbR-Va-hNg"/>
+                        <outlet property="signOutButton" destination="KXB-4r-c3U" id="Qbc-K4-h9S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyT-zg-9MT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4508" y="1576"/>
+        </scene>
+        <!--Change Password View Controller-->
+        <scene sceneID="wgv-Cq-QQ0">
+            <objects>
+                <viewController storyboardIdentifier="ChangePasswordViewController" id="J13-bo-3U9" customClass="ChangePasswordViewController" customModule="BasicNoteApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IDj-gb-key">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="8gx-6k-Dg5">
+                                <rect key="frame" x="20" y="163" width="353" height="175.33333333333337"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1lC-dE-jL8" customClass="BNAAuthTextField" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHD-r7-fyz">
+                                        <rect key="frame" x="0.0" y="40.666666666666657" width="353" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTA-P5-7hl" customClass="BNAAuthTextField" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="47" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEl-QS-UpF">
+                                        <rect key="frame" x="0.0" y="87.666666666666657" width="353" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-dP-rJZ" customClass="BNAAuthTextField" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="94" width="353" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HB1-jG-h2L">
+                                        <rect key="frame" x="0.0" y="134.66666666666669" width="353" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRa-nM-olv" customClass="BNAButton" customModule="BasicNoteApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="141" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="J13-bo-3U9" eventType="touchUpInside" id="bPZ-lT-siD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RY9-RA-JjE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8gx-6k-Dg5" firstAttribute="leading" secondItem="RY9-RA-JjE" secondAttribute="leading" constant="20" id="Hxj-G2-lNI"/>
+                            <constraint firstItem="8gx-6k-Dg5" firstAttribute="top" secondItem="RY9-RA-JjE" secondAttribute="top" constant="60" id="XWq-M6-V7Z"/>
+                            <constraint firstItem="RY9-RA-JjE" firstAttribute="trailing" secondItem="8gx-6k-Dg5" secondAttribute="trailing" constant="20" id="eJC-Df-90F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ztE-Nu-Tyb"/>
+                    <connections>
+                        <outlet property="newPasswordErrorLabel" destination="GEl-QS-UpF" id="Eyp-LO-tkv"/>
+                        <outlet property="newPasswordRetypeErrorLabel" destination="HB1-jG-h2L" id="q7t-hh-zop"/>
+                        <outlet property="newPasswordRetypeTextField" destination="pMc-dP-rJZ" id="aux-6U-Ovr"/>
+                        <outlet property="newPasswordTextField" destination="mTA-P5-7hl" id="qF7-sa-QSI"/>
+                        <outlet property="oldPasswordErrorLabel" destination="ZHD-r7-fyz" id="ylV-0m-WC1"/>
+                        <outlet property="oldPasswordTextField" destination="1lC-dE-jL8" id="udQ-xb-aY6"/>
+                        <outlet property="saveButton" destination="oRa-nM-olv" id="WTY-Mb-04T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0K6-Yv-iEW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5378" y="1576"/>
         </scene>
         <!--Note Detail View Controller-->
         <scene sceneID="czQ-Yc-1of">
@@ -120,7 +274,6 @@
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="enter a note content" translatesAutoresizingMaskIntoConstraints="NO" id="gQV-sA-XpU">
                                 <rect key="frame" x="16" y="186" width="361" height="350"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="3fG-fA-DxX"/>
                                 </constraints>
@@ -129,9 +282,9 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHY-8B-DLI" customClass="BNAButton" customModule="BasicNoteApp" customModuleProvider="target">
-                                <rect key="frame" x="125.66666666666669" y="596" width="142" height="41"/>
+                                <rect key="frame" x="116.66666666666669" y="596" width="160" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="Gte-E8-4Qb"/>
+                                    <constraint firstAttribute="width" constant="160" id="Gte-E8-4Qb"/>
                                     <constraint firstAttribute="height" constant="41" id="jhp-1a-pbU"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -525,7 +678,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZd-Q9-JOF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3166" y="815"/>
+            <point key="canvasLocation" x="3618" y="815"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CFd-EL-X6T">
@@ -552,9 +705,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

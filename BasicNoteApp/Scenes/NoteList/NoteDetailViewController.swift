@@ -26,8 +26,16 @@ class NoteDetailViewController: UIViewController {
         } else {
             newNoteCreatedFirst()
         }
-        
+        setupUI()
         setupListeners()
+    }
+    
+    func setupUI() {
+        titleTextField.borderStyle = .none
+        titleTextField.font = .inter(.title1)
+        
+        contentTextView.font = .inter(.title2)
+        contentTextView.textColor = Colors.BNAGrayDark
     }
     
     private func newNoteCreatedFirst() {

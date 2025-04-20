@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Colors {
-    static let BNAPrimaryColor = UIColor(red: 187/255, green: 140/255, blue: 255/255, alpha: 1) // hex: #BB8CFF
+    static let BNAPrimaryColor = UIColor(red: 139/255, green: 140/255, blue: 255/255, alpha: 1) // hex: #BB8CFF
     static let BNAPrimaryColorLight = UIColor(red: 220/255, green: 220/255, blue: 255/255, alpha: 1) // #DCDCFF
     
     static let BNAErrorColor = UIColor(red: 221/255, green: 44/255, blue: 0/255, alpha: 1) // #DD2C00
@@ -21,7 +21,6 @@ struct Colors {
     static let BNABlack = UIColor(red: 35/255, green: 35/255, blue: 60/255, alpha: 1) // #23233C
     
 }
-
 
 enum BNATextStyle {
     case title1

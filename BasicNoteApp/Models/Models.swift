@@ -18,7 +18,19 @@ struct APIResponse<T: Decodable>: Decodable {
     let data: T
 }
 
-struct NotesResponse: Decodable {
+struct NotesResponse: Codable {
     let current_page: Int
     let data: [Note]
+}
+
+struct UserResponse: Codable {
+    let id: Int
+    let fullName: String
+    let email: String
+ 
+    enum CodingKeys: String, CodingKey {
+        case id
+        case fullName = "full_name"
+        case email
+    }
 }

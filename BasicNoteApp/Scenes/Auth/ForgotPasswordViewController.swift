@@ -59,8 +59,7 @@ class ForgotPasswordViewController: BaseViewController {
         }
         
     }
-    
-    
+        
     func updateResetPasswordButtonState() {
         let isValid: Bool
         if let error = FormValidator.validateEmail(emailTextField.text!) {
