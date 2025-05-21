@@ -1,0 +1,19 @@
+# macOS trash
+.DS_Store
+
+# Xcode
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/xcuserdata
+*.xcuserstate
+*.moved-aside
+DerivedData/
+build/
+*.pbxuser
+
+# SwiftPM
+.build/
+Packages/
+Package.resolved
+
+# Secrets
+BasicNoteApp/Config/Secrets.plist
